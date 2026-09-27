@@ -30,9 +30,9 @@ Python 3.6 or higher. No external libraries or dependencies required.
 Installation & Run
 
 Clone or download this repository:
-bash```
+
 git clone https://github.com/pratyushsri0601-netizen/cli-tic-tac-toe.git
-```
+
 
 Run the script
 python TIC_TAC_TOE.py
