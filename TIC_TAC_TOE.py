@@ -1,7 +1,3 @@
-# ============================================================
-#                     TIC TAC TOE GAME
-# ============================================================
-
 print("================================================")
 print("              TIC TAC TOE GAME")
 print("================================================")
@@ -12,11 +8,6 @@ print("Two players can play this game.")
 print("Player 1 will use X.")
 print("Player 2 will use O.")
 print()
-
-
-# ============================================================
-#                     PLAYER DETAILS
-# ============================================================
 
 player1 = input("Enter name of Player 1: ")
 player2 = input("Enter name of Player 2: ")
@@ -29,22 +20,10 @@ while player2 == "":
     print("Name cannot be empty.")
     player2 = input("Enter name of Player 2: ")
 
-
-# ============================================================
-#                     FILE SETUP
-# ============================================================
-
-# Generates a filename based on the players' names
 filename = player1 + "_vs_" + player2 + ".txt"
 
-# Open in append mode ("a") to create the file if it does not exist
 file = open(filename, "a")
 file.close()
-
-
-# ============================================================
-#                     FILE FUNCTIONS
-# ============================================================
 
 def save_game_to_file(game_num, result):
     file = open(filename, "a")
@@ -52,16 +31,9 @@ def save_game_to_file(game_num, result):
     file.write(line)
     file.close()
 
-
 def clear_game_file():
-    # Opening in "w" mode empties the file
     file = open(filename, "w")
     file.close()
-
-
-# ============================================================
-#                     SCORE VARIABLES
-# ============================================================
 
 score1 = 0
 score2 = 0
@@ -69,17 +41,7 @@ score2 = 0
 draws = 0
 total_games = 0
 
-
-# ============================================================
-#                     GAME HISTORY
-# ============================================================
-
 history = []
-
-
-# ============================================================
-#                     DISPLAY MENU
-# ============================================================
 
 def show_menu():
 
@@ -93,11 +55,6 @@ def show_menu():
     print("6. Exit")
     print("------------------------------------")
 
-
-# ============================================================
-#                     CREATE BOARD
-# ============================================================
-
 def create_board():
 
     board = [
@@ -108,11 +65,6 @@ def create_board():
 
     return board
 
-
-# ============================================================
-#                     DISPLAY BOARD
-# ============================================================
-
 def show_board(board):
 
     print()
@@ -122,11 +74,6 @@ def show_board(board):
     print("       ---+---+---")
     print("        " + board[6] + " | " + board[7] + " | " + board[8])
     print()
-
-
-# ============================================================
-#                     SHOW POSITION GUIDE
-# ============================================================
 
 def show_position_guide():
 
@@ -141,11 +88,6 @@ def show_position_guide():
     print("        7 | 8 | 9")
     print()
 
-
-# ============================================================
-#                     CHECK POSITION
-# ============================================================
-
 def position_available(board, position):
 
     if board[position] == "X":
@@ -156,18 +98,11 @@ def position_available(board, position):
 
     return True
 
-
-# ============================================================
-#                     GET PLAYER MOVE
-# ============================================================
-
 def get_move(board, player_name):
 
     while True:
 
-        choice = input(
-            player_name + ", enter position (1-9): "
-        )
+        choice = input(player_name + ", enter position (1-9): " )
 
         if choice.isdigit() == False:
 
@@ -193,11 +128,6 @@ def get_move(board, player_name):
 
                     print("This position is already taken.")
 
-
-# ============================================================
-#                     CHECK ROW
-# ============================================================
-
 def check_rows(board, symbol):
 
     if board[0] == symbol:
@@ -216,11 +146,6 @@ def check_rows(board, symbol):
                 return True
 
     return False
-
-
-# ============================================================
-#                     CHECK COLUMNS
-# ============================================================
 
 def check_columns(board, symbol):
 
@@ -241,11 +166,6 @@ def check_columns(board, symbol):
 
     return False
 
-
-# ============================================================
-#                     CHECK DIAGONALS
-# ============================================================
-
 def check_diagonals(board, symbol):
 
     if board[0] == symbol:
@@ -260,11 +180,6 @@ def check_diagonals(board, symbol):
 
     return False
 
-
-# ============================================================
-#                     CHECK WINNER
-# ============================================================
-
 def check_winner(board, symbol):
 
     if check_rows(board, symbol):
@@ -278,11 +193,6 @@ def check_winner(board, symbol):
 
     return False
 
-
-# ============================================================
-#                     CHECK DRAW
-# ============================================================
-
 def check_draw(board):
 
     for position in board:
@@ -292,11 +202,6 @@ def check_draw(board):
                 return False
 
     return True
-
-
-# ============================================================
-#                     SHOW SCORE
-# ============================================================
 
 def show_score():
 
@@ -311,11 +216,6 @@ def show_score():
     print("Total Games :", total_games)
 
     print("========================================")
-
-
-# ============================================================
-#                     SHOW PLAYER DETAILS
-# ============================================================
 
 def show_player_details():
 
@@ -336,11 +236,6 @@ def show_player_details():
     print("Match File:", filename)
 
     print("========================================")
-
-
-# ============================================================
-#                     RESET SCORE
-# ============================================================
 
 def reset_score():
 
@@ -369,22 +264,12 @@ def reset_score():
 
         print("Score was not reset.")
 
-
-# ============================================================
-#                     ADD HISTORY
-# ============================================================
-
 def add_history(result):
 
     game_number = total_games
 
     history.append([game_number, result])
     save_game_to_file(game_number, result)
-
-
-# ============================================================
-#                     SHOW HISTORY
-# ============================================================
 
 def show_history():
 
@@ -404,11 +289,6 @@ def show_history():
             print(line, end="")
 
     print("========================================")
-
-
-# ============================================================
-#                     START GAME
-# ============================================================
 
 def start_game():
 
@@ -504,11 +384,6 @@ def start_game():
             current_symbol = "X"
             current_player = player1
 
-
-# ============================================================
-#                     GAME INSTRUCTIONS
-# ============================================================
-
 def instructions():
 
     print()
@@ -533,11 +408,6 @@ def instructions():
 
     print("========================================")
 
-
-# ============================================================
-#                     WELCOME SCREEN
-# ============================================================
-
 print()
 print("========================================")
 print("           WELCOME PLAYERS")
@@ -557,11 +427,6 @@ print(
 
 print("Game Data File:", filename)
 print("========================================")
-
-
-# ============================================================
-#                     MAIN PROGRAM
-# ============================================================
 
 while True:
 
